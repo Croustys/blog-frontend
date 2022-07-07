@@ -1,7 +1,10 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, memo, useState } from "react";
 import { API_URL } from "../../lib/constants";
+
+import Loading from "../Loading";
+import Notification from "../Notification";
 
 interface Props {
   isLogin?: boolean;
@@ -12,6 +15,8 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleSubmit = () => {
     if (isLogin) loginHandler();
     else registerHandler();
@@ -20,6 +25,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
+    setLoading(true);
     const resp = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: {
@@ -28,7 +34,13 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
       body: JSON.stringify({ email, password }),
     });
     const json = await resp.json();
-    console.log(json);
+    if (resp.ok) {
+      const { push } = (await import("next/router")).default;
+      push("/");
+      return;
+    }
+    setLoading(false);
+    //@TODO: display failed login attempt
   };
   const registerHandler = async () => {
     const username = usernameRef.current?.value;
@@ -45,6 +57,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     const json = await resp.json();
     console.log(json);
   };
+  if (loading) return <Loading />;
 
   return (
     <div className="container">
@@ -93,8 +106,9 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
           {isLogin ? <span>Continue</span> : <span>Create account</span>}
         </button>
       </div>
+      <Notification msg="Error message" />
     </div>
   );
 };
 
-export default Credentials;
+export default memo(Credentials);

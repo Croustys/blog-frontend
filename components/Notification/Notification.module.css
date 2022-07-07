@@ -1,0 +1,20 @@
+.notification_wrapper {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 5%;
+  bottom: 0;
+  right: 0;
+  transform: translateY(-10vh);
+}
+.notification_text { /* @TODO: fix design */
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  border-radius: 0.2em;
+  padding: 0.7em;
+  margin: auto;
+  color: rgb(209, 28, 28);
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}

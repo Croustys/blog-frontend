@@ -30,6 +30,6 @@
       "singleline": "never"
     }
   ],
-  "include": ["pages"],
+  "include": ["pages", "env.d.ts"],
   "exclude": ["node_modules"]
 }
