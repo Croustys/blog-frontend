@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as React from "react";
 
 export default function Home() {
@@ -13,9 +14,11 @@ export default function Home() {
           <span>what's on your mind</span>
         </div>
         <div className="join-button">
-          <button id="join-now" type="button">
-            <span>Join now</span>
-          </button>
+          <Link href="/register">
+            <button id="join-now" type="button">
+              <span>Join now</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
