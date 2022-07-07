@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["es6", "es7", "esnext", "dom"],
+    "allowJs": false,
+    "jsx": "preserve",
+    "removeComments": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["components/*"]
+    },
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "trailing-comma": [
+    true,
+    {
+      "multiline": "always",
+      "singleline": "never"
+    }
+  ],
+  "include": ["pages"],
+  "exclude": ["node_modules"]
+}
