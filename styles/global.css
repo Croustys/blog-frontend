@@ -123,3 +123,14 @@ body {
   font-weight: 300;
   margin-bottom: 0.3em;
 }
+
+.sign-register-link {
+  display: inline-block;
+  font-family: var(--roboto);
+  font-weight: 300;
+  margin-top: 0.7em;
+  font-size: 0.8em;
+}
+.sign-register-link a:any-link {
+  color: var(--dark-red);
+}
