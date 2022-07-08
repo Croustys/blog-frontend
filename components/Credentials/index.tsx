@@ -42,7 +42,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     const json = await resp.json();
     if (resp.ok) {
       const { push } = (await import("next/router")).default;
-      push("/");
+      push("/feed");
       return;
     }
     setLoading(false);
@@ -63,7 +63,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     const json = await resp.json();
     if (resp.ok) {
       const { push } = (await import("next/router")).default;
-      push("/");
+      push("/feed");
       return;
     }
     setLoading(false);

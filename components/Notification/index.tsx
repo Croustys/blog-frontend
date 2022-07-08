@@ -11,7 +11,7 @@ const Notification = ({ msg }: Props) => {
   useEffect(() => {
     const timeId = setTimeout(() => {
       setShow(false);
-    }, 1500);
+    }, 3000);
 
     return () => {
       clearTimeout(timeId);

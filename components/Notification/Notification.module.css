@@ -7,19 +7,44 @@
   right: 0;
   transform: translateY(-10vh);
 }
-/* @TODO: fix design */
 .notification_text {
-  background-color: white;
+  background-color: #ff0952;
   width: 80%;
   height: 100%;
   border-radius: 0.2em;
   padding: 0.7em;
   margin: auto;
-  color: rgb(209, 28, 28);
+  color: #fcfeff;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border-left: 10px solid #fcfeff;
 }
 .fadeOut {
   opacity: 0;
   transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+}
+@media only screen and (min-width: 600px) {
+  .notification_text {
+    width: 60%;
+  }
+  .notification_wrapper {
+    transform: translateY(-5vh);
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .notification_text {
+    width: 40%;
+  }
+  .notification_wrapper {
+    transform: translateY(-5vh);
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .notification_text {
+    width: 20%;
+  }
+  .notification_wrapper {
+    transform: translateY(-5vh);
+  }
 }
