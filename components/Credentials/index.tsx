@@ -9,6 +9,10 @@ import Notification from "../Notification";
 interface Props {
   isLogin?: boolean;
 }
+interface FetchError {
+  error: boolean;
+  msg: string;
+}
 
 const Credentials: NextPage<Props> = ({ isLogin = false }) => {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -16,8 +20,11 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<FetchError>({ error: false, msg: "" });
 
   const handleSubmit = () => {
+    setError({ error: false, msg: "" });
+    setLoading(true);
     if (isLogin) loginHandler();
     else registerHandler();
   };
@@ -25,7 +32,6 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
-    setLoading(true);
     const resp = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: {
@@ -40,7 +46,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
       return;
     }
     setLoading(false);
-    //@TODO: display failed login attempt
+    setError({ error: true, msg: json.StatusMessage });
   };
   const registerHandler = async () => {
     const username = usernameRef.current?.value;
@@ -55,7 +61,13 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
       body: JSON.stringify({ username, email, password }),
     });
     const json = await resp.json();
-    console.log(json);
+    if (resp.ok) {
+      const { push } = (await import("next/router")).default;
+      push("/");
+      return;
+    }
+    setLoading(false);
+    setError({ error: true, msg: json.StatusMessage });
   };
   if (loading) return <Loading />;
 
@@ -106,7 +118,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
           {isLogin ? <span>Continue</span> : <span>Create account</span>}
         </button>
       </div>
-      <Notification msg="Error message" />
+      {error.error && <Notification msg={error.msg} />}
     </div>
   );
 };

@@ -7,7 +7,8 @@
   right: 0;
   transform: translateY(-10vh);
 }
-.notification_text { /* @TODO: fix design */
+/* @TODO: fix design */
+.notification_text {
   background-color: white;
   width: 80%;
   height: 100%;
@@ -17,4 +18,8 @@
   color: rgb(209, 28, 28);
   text-align: center;
   font-family: "Open Sans", sans-serif;
+}
+.fadeOut {
+  opacity: 0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
 }

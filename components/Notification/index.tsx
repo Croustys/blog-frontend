@@ -1,13 +1,29 @@
 import styles from "./Notification.module.css";
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 
 interface Props {
   msg: string;
 }
 
 const Notification = ({ msg }: Props) => {
+  const [show, setShow] = useState<boolean>(true);
+  const [display, setDisplay] = useState<boolean>(true);
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setShow(false);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timeId);
+    };
+  }, []);
+
+  if (!display) return null;
   return (
-    <div className={styles.notification_wrapper}>
+    <div
+      className={`${styles.notification_wrapper} ${show ? "" : styles.fadeOut}`}
+      onTransitionEnd={() => setDisplay(false)}
+    >
       <div className={styles.notification_text}>{msg}</div>
     </div>
   );
