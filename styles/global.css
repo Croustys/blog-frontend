@@ -26,7 +26,7 @@ body {
   height: 100%;
 }
 .wrapper {
-  margin-top: 50%;
+  margin-top: 30%;
 }
 .title {
   color: var(--light);
@@ -166,6 +166,10 @@ body {
   }
 }
 
+.test {
+  color: var(--light);
+}
+
 /* @TODO: responsive design for register */
 @media only screen and (min-width: 700px) {
   .top {
@@ -180,6 +184,12 @@ body {
   }
   #join-now {
     width: 30%;
+  }
+  .join-button {
+    margin-top: 35%;
+  }
+  .wrapper {
+    margin-top: 20%;
   }
 }
 @media only screen and (min-width: 1100px) {
@@ -197,6 +207,12 @@ body {
   }
   #join-now {
     width: 20%;
+  }
+  .join-button {
+    margin-top: 15%;
+  }
+  .title {
+    margin-bottom: 3%;
   }
 }
 @media only screen and (min-width: 1500px) {
