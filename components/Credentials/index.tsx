@@ -34,6 +34,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
 
     const resp = await fetch(`${API_URL}/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -55,6 +56,7 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
 
     const resp = await fetch(`${API_URL}/register`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
