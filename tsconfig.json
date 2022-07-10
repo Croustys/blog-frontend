@@ -13,7 +13,10 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "components/*": ["components/*"]
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"],
+      "types/*": ["types/*"]
     },
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
