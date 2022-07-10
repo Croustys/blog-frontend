@@ -170,7 +170,6 @@ body {
   color: var(--light);
 }
 
-/* @TODO: responsive design for register */
 @media only screen and (min-width: 700px) {
   .top {
     margin-top: 10%;
