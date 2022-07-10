@@ -13,7 +13,13 @@ interface Props {
 const Quote = ({ id, username, title, content }: Props) => {
   return (
     <div className={styles.quote_wrapper}>
-      <Link href={`/quote/${id}`}>
+      <Link
+        href={{
+          pathname: `/quote/${id}`,
+          query: { username, title, content },
+        }}
+        as={`/quote/${id}`}
+      >
         <div className={styles.quote_link_wrapper}>
           <div className={styles.username}>{username}</div>
           <div className={styles.title}>{title}</div>
