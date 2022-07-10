@@ -12,10 +12,12 @@ interface Props {
 
 const Quote = ({ id, username, title, content }: Props) => {
   return (
-    <div className={styles.test}>
+    <div className={styles.quote_wrapper}>
       <Link href={`/quote/${id}`}>
-        <div>
-          {username} {title} {content}
+        <div className={styles.quote_link_wrapper}>
+          <div className={styles.username}>{username}</div>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.content}>{content}</div>
         </div>
       </Link>
     </div>
