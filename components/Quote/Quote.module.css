@@ -1,3 +1,30 @@
-.test {
-  color: white;
+.quote_wrapper {
+  color: #fcfeff;
+  background-color: #717b94;
+  width: 80%;
+  margin: 5vh auto;
+  padding: 1em;
+  border-radius: 0.2em;
+  border: 1px solid #3e434e;
+}
+.quote_wrapper:hover {
+  border-color: #fcfeff;
+  cursor: pointer;
+}
+.username {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em;
+  color: #eeeeee;
+  margin-bottom: 1em;
+}
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  padding-left: 1em;
+}
+.content {
+  padding-left: 1em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
