@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "dev-backend": "cd ../../../go/blog-backend && go run ./cmd/main.go"
   },
   "dependencies": {
     "next": "latest",
