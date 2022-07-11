@@ -11,3 +11,14 @@
 .open2 {
   opacity: 0;
 }
+.burger svg {
+  transform: scale(0.7, 0.7);
+}
+.burger {
+  width: fit-content;
+  height: fit-content;
+  opacity: 1;
+}
+.burger:hover {
+  cursor: pointer;
+}
