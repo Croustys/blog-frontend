@@ -1,0 +1,13 @@
+.burger svg g line {
+  transition: transform 200ms ease-in;
+  transition: 200ms;
+}
+.open1 {
+  transform: translate(24px, -5px) rotate(45deg);
+}
+.open3 {
+  transform: translate(-20px, 24px) rotate(-45deg);
+}
+.open2 {
+  opacity: 0;
+}
