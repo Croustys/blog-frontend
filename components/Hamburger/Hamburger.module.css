@@ -22,3 +22,29 @@
 .burger:hover {
   cursor: pointer;
 }
+
+/* @TODO: animation */
+.wrapper {
+  color: white;
+  display: flex;
+  position: absolute;
+  width: 90%;
+  margin: auto;
+  background-color: #fcfeff;
+  border-radius: 0.2em;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.wrapper ul {
+  list-style-type: none;
+}
+.wrapper li {
+  padding: 0.5em 0em;
+  width: fit-content;
+}
+.wrapper a:any-link {
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: #1e2128;
+}
