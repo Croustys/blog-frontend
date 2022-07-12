@@ -1,11 +1,11 @@
-import * as React from "react";
-import styles from "./Hamburger.module.css";
 import { memo } from "react";
+import styles from "./Hamburger.module.css";
 import Link from "next/link";
 
-const Menu = () => {
+const Menu = ({ open }: { open: boolean }) => {
+  if (!open) return null;
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${open ? styles.animate_open : ""}`}>
       <ul>
         <li>
           <Link href="/feed">

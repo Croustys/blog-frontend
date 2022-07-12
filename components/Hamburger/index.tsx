@@ -53,7 +53,7 @@ const Hamburger = () => {
           />
         </g>
       </svg>
-      {open && <Menu />}
+      <Menu open={open} />
     </div>
   );
 };
