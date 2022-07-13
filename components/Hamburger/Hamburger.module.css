@@ -44,9 +44,11 @@
   width: fit-content;
 }
 .wrapper li a:hover {
+  transition: 200ms;
   color: #ff0952;
 }
 .wrapper a:any-link {
+  transition: 200ms;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
   color: #1e2128;
