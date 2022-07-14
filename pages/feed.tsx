@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import Quote from "../components/Quote";
 import { API_URL } from "lib/constants";
 import { iQuote } from "types";
+import Layout from "components/Layout"
 
 interface iSSRProps {
   ssrQuotes: iQuote[];
@@ -34,12 +35,15 @@ export default function Feed({ ssrQuotes, limit }: iSSRProps) {
     setOffset((prev) => prev + limit);
   };
   return (
+    <Layout>
+
     <div className="container">
       {quotes?.map((quoteData) => (
         <Quote {...quoteData} key={quoteData.id} />
-      ))}
+        ))}
       <button onClick={loadMore}>Load more</button>
     </div>
+        </Layout>
   );
 }
 

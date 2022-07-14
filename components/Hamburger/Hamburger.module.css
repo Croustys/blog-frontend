@@ -1,0 +1,66 @@
+.burger svg g line {
+  transition: transform 200ms ease-in;
+  transition: 200ms;
+}
+.open1 {
+  transform: translate(25px, -5px) rotate(45deg);
+}
+.open3 {
+  transform: translate(-19px, 24px) rotate(-45deg);
+}
+.open2 {
+  opacity: 0;
+}
+.burger svg {
+  transform: scale(0.8, 0.8);
+}
+.burger {
+  width: fit-content;
+  height: fit-content;
+  opacity: 1;
+  margin-left: 10%;
+}
+.burger:hover {
+  cursor: pointer;
+}
+
+.wrapper {
+  color: white;
+  display: flex;
+  position: absolute;
+  width: 80%;
+  margin: auto;
+  background-color: #fcfeff;
+  border-radius: 0.2em;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.wrapper ul {
+  list-style-type: none;
+}
+.wrapper li {
+  padding: 0.5em 0em;
+  width: fit-content;
+}
+.wrapper li a:hover {
+  transition: 200ms;
+  color: #ff0952;
+}
+.wrapper a:any-link {
+  transition: 200ms;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: #1e2128;
+}
+.animate_open {
+  animation: appear 200ms;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

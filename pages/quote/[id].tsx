@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import fetchQuote from "lib/quote";
 import Quote from "components/Quote";
+import Layout from "components/Layout";
 import { iQuote } from "types";
 
 //only fetches db if link is opened on client side without the query parameters
@@ -25,5 +26,9 @@ export default function SingleQuote() {
     } else fetchQuote({ id }).then((x) => setQuote(x));
   }, [router.isReady]);
 
-  return <div className="container">{quote && <Quote {...quote} />}</div>;
+  return (
+    <Layout>
+      <div className="container">{quote && <Quote {...quote} />}</div>;
+    </Layout>
+  );
 }

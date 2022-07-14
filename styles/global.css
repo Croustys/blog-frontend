@@ -217,6 +217,9 @@ body {
   .logreg {
     margin-top: 0;
   }
+  .join-button {
+    margin-top: 5%;
+  }
   #join-now {
     width: 10%;
   }
