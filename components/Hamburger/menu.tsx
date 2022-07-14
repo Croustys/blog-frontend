@@ -13,6 +13,11 @@ const Menu = ({ open }: { open: boolean }) => {
           </Link>
         </li>
         <li>
+          <Link href="/account">
+            <a>Account</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/quote/create">
             <a>Create</a>
           </Link>
