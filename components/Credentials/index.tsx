@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRef, memo, useState } from "react";
-import { API_URL } from "../../lib/constants";
+import isAnyFieldsEmpty from "lib/empty-fields";
 
 import Loading from "../Loading";
 import Notification from "../Notification";
@@ -25,22 +25,20 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
   const handleSubmit = () => {
     setError({ error: false, msg: "" });
     setLoading(true);
-    if (isLogin) loginHandler();
-    else registerHandler();
+    isLogin ? loginHandler() : registerHandler();
   };
   const loginHandler = async () => {
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
+    const email = emailRef.current?.value as string;
+    const password = passwordRef.current?.value as string;
 
-    const resp = await fetch(`${API_URL}/login`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    if (isAnyFieldsEmpty({ email, password })) {
+      setError({ error: true, msg: "Missing Login Credentials" });
+      return;
+    }
+    const { fetchLogin } = await import("lib/log-reg");
+    const resp = await fetchLogin({ email, password });
     const json = await resp.json();
+
     if (resp.ok) {
       const { push } = (await import("next/router")).default;
       push("/feed");
@@ -50,19 +48,19 @@ const Credentials: NextPage<Props> = ({ isLogin = false }) => {
     setError({ error: true, msg: json.StatusMessage });
   };
   const registerHandler = async () => {
-    const username = usernameRef.current?.value;
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
+    const username = usernameRef.current?.value as string;
+    const email = emailRef.current?.value as string;
+    const password = passwordRef.current?.value as string;
 
-    const resp = await fetch(`${API_URL}/register`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, email, password }),
-    });
+    if (isAnyFieldsEmpty({ username, email, password })) {
+      setError({ error: true, msg: "Missing Register Information" });
+      return;
+    }
+
+    const { fetchRegister } = await import("lib/log-reg");
+    const resp = await fetchRegister({ username, email, password });
     const json = await resp.json();
+
     if (resp.ok) {
       const { push } = (await import("next/router")).default;
       push("/feed");
