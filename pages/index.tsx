@@ -14,7 +14,7 @@ export default function Home() {
           <span>what's on your mind</span>
         </div>
         <div className="join-button">
-          <Link href="/register">
+          <Link href="/login">
             <button id="join-now" type="button">
               <span>Join now</span>
             </button>

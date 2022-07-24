@@ -38,6 +38,9 @@
 }
 .wrapper ul {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .wrapper li {
   padding: 0.5em 0em;

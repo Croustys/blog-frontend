@@ -154,6 +154,28 @@ body {
   justify-content: center;
   align-items: center;
 }
+.lazy-loading-wrapper {
+  width: auto;
+  height: 31vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  display: absolute;
+  margin: auto;
+  color: var(--dark-blue);
+  font-family: var(--inter);
+  width: fit-content;
+  padding: 1em;
+  border-radius: 0.2em;
+  background-color: var(--light);
+}
+.logout:hover {
+  cursor: pointer;
+}
+
 @keyframes loading-animation {
   0% {
     transform: translateY(0);
