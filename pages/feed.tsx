@@ -3,7 +3,9 @@ import { GetServerSideProps } from "next";
 import Quote from "../components/Quote";
 import { API_URL } from "lib/constants";
 import { iQuote } from "types";
+
 import Layout from "components/Layout";
+import LazyLoading from "components/Loading/Lazy";
 
 interface iSSRProps {
   ssrQuotes: iQuote[];
@@ -62,8 +64,7 @@ export default function Feed({ ssrQuotes, limit }: iSSRProps) {
             <Quote {...quoteData} key={quoteData.id} />
           )
         )}
-        {/* @TODO: implement lazy loading component */}
-        {loading && "Loading..."}{" "}
+        {loading && <LazyLoading />}
       </div>
     </Layout>
   );

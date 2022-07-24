@@ -154,6 +154,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+.lazy-loading-wrapper {
+  width: auto;
+  height: 31vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .logout {
   display: absolute;
